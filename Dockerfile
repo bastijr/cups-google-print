@@ -33,7 +33,9 @@ RUN usermod -u 99 nobody \
 ## && add-apt-repository "deb http://www.bchemnet.com/suldr/ debian extra" \
 ## && add-apt-repository ppa:ubuntu-lxc/lxd-stable \
 ## && sed -i -e "s#http://[^\s]*archive.ubuntu[^\s]* #mirror://mirrors.ubuntu.com/mirrors.txt #g" /etc/apt/sources.list
-
+RUN apt-get update -qq \
+&& apt-get install -qy --force-yes \
+ software-properties-common
 RUN add-apt-repository ppa:ubuntu-lxc/lxd-stable 
 ## <-- removing modification of sources host
 ## \
@@ -42,8 +44,7 @@ RUN add-apt-repository ppa:ubuntu-lxc/lxd-stable
 
 # Install Dependencies
 
-RUN apt-get update -qq \
-&& apt-get install -qy --force-yes \
+RUN apt-get install -qy --force-yes \
  cups \
  cups-pdf \
  whois \
