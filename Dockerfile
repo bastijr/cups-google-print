@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.16
+FROM ubuntu:18.04
 MAINTAINER mnbf9rca mnbf9rca@gmx.com
 
 ## cloned from gfjardim  / https://github.com/gfjardim/docker-containers / <gfjardim@gmail.com>
